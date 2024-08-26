@@ -57,6 +57,13 @@ resource "yandex_vpc_security_group" "mgmt-sg" {
 
   ingress {
     protocol            = "TCP"
+    description         = "UserGate port for API to connect from Jump VM"
+    port                = 4040
+    security_group_id   = yandex_vpc_security_group.mgmt-jump-vm-sg.id
+  }
+
+  ingress {
+    protocol            = "TCP"
     description         = "SSH from Jump VM to other segment"
     port                = 22
     security_group_id   = yandex_vpc_security_group.mgmt-jump-vm-sg.id

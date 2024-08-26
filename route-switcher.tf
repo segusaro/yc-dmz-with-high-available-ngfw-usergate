@@ -1,10 +1,11 @@
 module "route_switcher" {
-  source    = "./modules/route-switcher/"
-  start_module          = false
+  source    = "git@github.com:segusaro/yc-route-switcher-fast.git"
+  start_module          = true
   folder_id = yandex_resourcemanager_folder.folder[0].id
   route_table_folder_list = yandex_resourcemanager_folder.folder.*.id
   route_table_list      = flatten([[yandex_vpc_route_table.mgmt-rt.id], yandex_vpc_route_table.segment-rt.*.id])
   router_healthcheck_port = 443
+  router_healthcheck_interval = 10
   back_to_primary = true
   routers = [
     {
