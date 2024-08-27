@@ -5,7 +5,7 @@ module "route_switcher" {
   route_table_folder_list = yandex_resourcemanager_folder.folder.*.id
   route_table_list      = flatten([[yandex_vpc_route_table.mgmt-rt.id], yandex_vpc_route_table.segment-rt.*.id])
   router_healthcheck_port = 443
-  router_healthcheck_interval = 10
+  router_healthcheck_interval = 60
   back_to_primary = true
   routers = [
     {
