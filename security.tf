@@ -208,8 +208,8 @@ resource "yandex_vpc_security_group" "segment-sg" {
     description         = "HTTPS"
     port                = 443
     v4_cidr_blocks      = [
-      var.zone1_subnet_prefix_list[count.index + 2], 
-      var.zone2_subnet_prefix_list[count.index + 2]
+      yandex_vpc_subnet.zone1-subnet[count.index + 2].v4_cidr_blocks[0], 
+      yandex_vpc_subnet.zone2-subnet[count.index + 2].v4_cidr_blocks[0]
     ]
   }
 
@@ -218,8 +218,8 @@ resource "yandex_vpc_security_group" "segment-sg" {
     description         = "SSH"
     port                = 22
     v4_cidr_blocks      = [
-      var.zone1_subnet_prefix_list[count.index + 2], 
-      var.zone2_subnet_prefix_list[count.index + 2]
+      yandex_vpc_subnet.zone1-subnet[count.index + 2].v4_cidr_blocks[0], 
+      yandex_vpc_subnet.zone2-subnet[count.index + 2].v4_cidr_blocks[0]
     ]
   }
 
@@ -227,8 +227,8 @@ resource "yandex_vpc_security_group" "segment-sg" {
     protocol            = "ICMP"
     description         = "ICMP"
     v4_cidr_blocks      = [
-      var.zone1_subnet_prefix_list[count.index + 2], 
-      var.zone2_subnet_prefix_list[count.index + 2]
+      yandex_vpc_subnet.zone1-subnet[count.index + 2].v4_cidr_blocks[0], 
+      yandex_vpc_subnet.zone2-subnet[count.index + 2].v4_cidr_blocks[0]
     ]
   }  
 

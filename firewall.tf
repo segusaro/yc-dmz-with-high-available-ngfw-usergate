@@ -72,7 +72,6 @@ resource "yandex_compute_instance" "fw-a" {
   hostname    = "fw-a"
   platform_id = "standard-v3"
   allow_stopping_for_update = true
-  depends_on = [yandex_vpc_subnet.zone1-subnet]
   
   resources {
     cores  = 4
@@ -113,7 +112,6 @@ resource "yandex_compute_instance" "fw-b" {
   hostname    = "fw-b"
   platform_id = "standard-v3"
   allow_stopping_for_update = true
-  depends_on = [yandex_vpc_subnet.zone2-subnet]
   
   resources {
     cores  = 4
