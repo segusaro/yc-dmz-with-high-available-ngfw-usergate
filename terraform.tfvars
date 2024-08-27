@@ -1,6 +1,6 @@
 cloud_id = "b1g3cmsignsspgh10pd2rj"
 az_name_list = ["ru-central1-d", "ru-central1-b"]
-security_segment_names = ["demo-mgmt", "demo-public", "demo-dmz"]
+security_segment_names = ["mgmt", "public", "dmz"]
 zone1_subnet_prefix_list = ["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]
 zone2_subnet_prefix_list = ["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]
 public_app_port = 80 

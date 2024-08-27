@@ -1,6 +1,6 @@
 module "route_switcher" {
-  source    = "git@github.com:segusaro/yc-route-switcher-fast.git"
-  start_module          = true
+  source    = "git@github.com:yandex-cloud-examples/yc-route-switcher.git"
+  start_module          = false
   folder_id = yandex_resourcemanager_folder.folder[0].id
   route_table_folder_list = yandex_resourcemanager_folder.folder.*.id
   route_table_list      = flatten([[yandex_vpc_route_table.mgmt-rt.id], yandex_vpc_route_table.segment-rt.*.id])
